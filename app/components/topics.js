@@ -17,7 +17,7 @@ export default class Topics extends Component {
     }
 
     render() {
-      let { loading, topics } = this.props;
+      let { loading, topics, rowLimit } = this.props;
       if (loading) {
         return (
           <View style={styles.activityIndicatorContainer}>
@@ -32,7 +32,7 @@ export default class Topics extends Component {
       return (
         <View style={styles.flatListContainer}>
           <FlatList
-            data={this.props.topics}
+            data={this.props.topics.slice(0,rowLimit)}
             extraData={this.props.topics}
             keyExtractor={this.keyExtractor}
             renderItem={this.renderRow}/>

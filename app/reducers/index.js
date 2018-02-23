@@ -2,7 +2,11 @@ import { combineReducers } from 'redux';
 
 import { FETCH_TOPICS_LIST, ON_PRESS_VOTE } from '../actions';
 
-let topicsState = { topics: [], loading:true };
+let topicsState = {
+  rowLimit: 20,
+  topics: [],
+  loading:true
+};
 
 function sortList(list) {
   return list && list.sort((a,b) => (b.votes - a.votes));

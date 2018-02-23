@@ -18,10 +18,7 @@ class TopicsContainer extends Component {
 };
 
 function mapStateToProps(state, props) {
-    return {
-        loading: state.topicsReducer.loading,
-        topics: state.topicsReducer.topics
-    }
+    return {...state.topicsReducer}
 }
 
 function mapDispatchToProps(dispatch) {

@@ -1,37 +1,52 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {bindActionCreators} from 'redux';
-import { connect } from 'react-redux';
 
-var { View } = require('react-native');
+import {
+  ActivityIndicator,
+  View,
+  FlatList,
+  Text,
+} from 'react-native';
 
-import * as Actions from '../actions';
-
-class Topics extends Component {
+export default class Topics extends Component {
     componentDidMount() {
         this.props.fetchTopicsList(); //call our action
     }
 
     render() {
-      let { topics } = this.props;
-      // console.log(topics);
+      let { loading, topics } = this.props;
+      if (loading) {
+        return (
+          <View>
+            <ActivityIndicator
+              animating={true}
+              style={[{height: 100}]}
+              size="small" />
+          </View>
+        )
+      }
+
       return (
         <View>
+          <FlatList
+            data={this.props.topics}
+            extraData={this.props.topics}
+            keyExtractor={this.keyExtractor}
+            renderItem={this.renderRow}/>
+        </View>
+      );
+    }
+
+    keyExtractor = (item, index) => index;
+
+    renderRow = ( { item, index } ) => {
+      return (
+        <View>
+          <Text>
+            {item.name}
+          </Text>
         </View>
       );
     }
 };
-
-function mapStateToProps(state, props) {
-    return {
-        loading: state.topicsReducer.loading,
-        topics: state.topicsReducer.topics
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(Actions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Topics);

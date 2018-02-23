@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { FETCH_TOPICS_LIST } from "../actions/" //Import the actions types constant we defined in our actions
+import { FETCH_TOPICS_LIST } from '../actions';
 
 let topicsState = { topics: [], loading:true };
 

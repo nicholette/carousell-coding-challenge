@@ -1,27 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import createReactClass from 'create-react-class';
-import { shallow } from 'enzyme';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
+import { Text } from 'react-native';
+import { mount } from 'enzyme';
 import { expect } from 'chai';
 
-const Test = createReactClass({
-  render() {
-    return (
-      <View>
-        <Text>enzyme</Text>
-        <Text>rules</Text>
-      </View>
-    )
-  }
-});
-describe('<Topics />', () => {
-  it('it should render 1 view component', () => {
-    const wrapper = shallow(<Test/>);
-    expect(wrapper.find(View)).to.have.length(1);
-  });
+import Topics from '../components/topics';
 
-  it('it should render 2 text components', () => {
-    const wrapper = shallow(<Test/>);
+const props = {
+  fetchTopicsList: jest.fn(),
+  topics: [
+    {
+      name: 'THE HOTTEST TOPIC IN TOWN',
+      upvotes: 100,
+      downvotes: 21,
+    },
+    {
+      name: 'THE COLDEST TOPIC IN TOWN',
+      upvotes: 1,
+      downvotes: 100,
+    },
+  ]
+};
+
+describe('<Topics />', () => {
+  it('it should render 2 rows', () => {
+    const wrapper = mount(<Topics {...props}/>);
     expect(wrapper.find(Text)).to.have.length(2);
   });
 });

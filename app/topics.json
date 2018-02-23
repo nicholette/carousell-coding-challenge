@@ -1,0 +1,14 @@
+{
+  "topics": [
+    {
+      "name": "THE HOTTEST TOPIC IN TOWN",
+      "upvotes": 100,
+      "downvotes": 21,
+    },
+    {
+      "name": "THE COLDEST TOPIC IN TOWN",
+      "upvotes": 1,
+      "downvotes": 100,
+    },
+  ]
+}

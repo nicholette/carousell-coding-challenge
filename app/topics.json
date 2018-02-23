@@ -2,13 +2,19 @@
   "topics": [
     {
       "name": "THE HOTTEST TOPIC IN TOWN",
-      "upvotes": 100,
-      "downvotes": 21,
+      "votes": 100
     },
     {
       "name": "THE COLDEST TOPIC IN TOWN",
-      "upvotes": 1,
-      "downvotes": 100,
+      "votes": -100
+    },
+    {
+      "name": "Not too warm",
+      "votes": 50
+    },
+    {
+      "name": "Quite Cold",
+      "votes": -99
     },
   ]
 }

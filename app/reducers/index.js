@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { FETCH_TOPICS_LIST, ON_PRESS_VOTE } from '../actions';
+import { FETCH_TOPICS_LIST, ON_PRESS_VOTE, ON_PRESS_NEW_TOPIC } from '../actions';
 
 let topicsState = {
   rowLimit: 20,
@@ -36,8 +36,9 @@ export const topicsReducer = (state = topicsState, action) => {
 };
 
 // Combine all the reducers
-const rootReducer = combineReducers({
-    topicsReducer
-})
-
-export default rootReducer;
+export default function getRootReducer(navReducer) {
+    return combineReducers({
+        nav: navReducer,
+        topics: topicsReducer,
+    });
+}

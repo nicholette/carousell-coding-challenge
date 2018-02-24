@@ -16,6 +16,24 @@ export default class Topics extends Component {
         this.props.fetchTopicsList(); //call our action
     }
 
+    keyExtractor = (item, index) => index;
+
+    renderRow = ( { item, index } ) => {
+      const { onPressVote } = this.props;
+      return (
+        <View style={styles.row}>
+          <Text style={styles.title}>
+            {item.name}
+          </Text>
+          <Votes
+            votes={item.votes}
+            onPressUpvote={() => onPressVote(index, 'upvote')}
+            onPressDownvote={() => onPressVote(index, 'downvote')}
+          />
+        </View>
+      );
+    }
+
     render() {
       let { loading, topics, rowLimit } = this.props;
       if (loading) {
@@ -36,24 +54,6 @@ export default class Topics extends Component {
             extraData={this.props.topics}
             keyExtractor={this.keyExtractor}
             renderItem={this.renderRow}/>
-        </View>
-      );
-    }
-
-    keyExtractor = (item, index) => index;
-
-    renderRow = ( { item, index } ) => {
-      const { onPressVote } = this.props;
-      return (
-        <View style={styles.row}>
-          <Text style={styles.title}>
-            {item.name}
-          </Text>
-          <Votes
-            votes={item.votes}
-            onPressUpvote={() => onPressVote(index, 'upvote')}
-            onPressDownvote={() => onPressVote(index, 'downvote')}
-          />
         </View>
       );
     }

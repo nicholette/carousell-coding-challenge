@@ -1,7 +1,22 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import {
+  createReactNavigationReduxMiddleware
+} from 'react-navigation-redux-helpers';
+import getRootReducer from '../app/reducers';
 
-import reducers from '../app/reducers';
+const middleware = createReactNavigationReduxMiddleware(
+  "root",
+  state => state.nav,
+);
 
 // connect store to reducers
-export default createStore(reducers, applyMiddleware(thunk));
+export default function getStore(navReducer) {
+    const store = createStore(
+        getRootReducer(navReducer),
+        applyMiddleware(middleware),
+        applyMiddleware(thunk)
+    );
+
+    return store;
+}

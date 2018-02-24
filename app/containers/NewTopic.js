@@ -21,9 +21,11 @@ class NewTopicContainer extends Component {
         <Button
           onPress={() => {
             this.props.createTopic();
-            this.props.navigate({
-              routeName: 'Topics'
-            })
+            // reset and navigate are part of NavigationActions
+            this.props.reset({
+              index: 0,
+              actions: [this.props.navigate({routeName: 'Topics'})]
+            });
           }}
           text={'Create Topic'}
         />

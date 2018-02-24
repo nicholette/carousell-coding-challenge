@@ -11,7 +11,11 @@ import {
   Text,
 } from 'react-native';
 
+
+// This component always return a list of top 20 topics,
+// sorted by upvotes, descendingly
 export default class Topics extends Component {
+
     componentDidMount() {
         // Only for demo - load mock data on first load
         if (this.props.firstLoad) {

@@ -10,7 +10,7 @@ const middleware = createReactNavigationReduxMiddleware(
   state => state.nav,
 );
 
-// connect store to reducers
+// Connect store to reducers
 export default function getStore(navReducer) {
     const store = createStore(
         getRootReducer(navReducer),

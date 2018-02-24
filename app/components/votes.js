@@ -10,6 +10,8 @@ import {
   View,
 } from 'react-native';
 
+// This component allows the user to upvote or downvote a topic.
+// For this demo, the user may upvote or downvote the same topic multiple times.
 export default class Votes extends Component {
 
     parseVotes = (votes) => {

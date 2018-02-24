@@ -13,7 +13,10 @@ import {
 
 export default class Topics extends Component {
     componentDidMount() {
-        this.props.fetchTopicsList(); //call our action
+        // Only for demo - load mock data on first load
+        if (this.props.firstLoad) {
+          this.props.fetchTopicsList();
+        }
     }
 
     keyExtractor = (item, index) => index;

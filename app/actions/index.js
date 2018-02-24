@@ -1,5 +1,4 @@
-//Import the sample data
-
+// Mock data for first load
 const seedTopics = [
     {
       name: "THE HOTTEST TOPIC IN TOWN",
@@ -37,6 +36,25 @@ export function onPressVote(topicIndex, voteType) {
         type: ON_PRESS_VOTE,
         topicIndex,
         voteType
+      });
+    };
+}
+
+export const ON_CHANGE_TITLE = 'ON_CHANGE_TITLE';
+export function onChangeTitle(newTitle) {
+    return (dispatch) => {
+      dispatch({
+        type: ON_CHANGE_TITLE,
+        newTitle
+      });
+    };
+}
+
+export const ON_CREATE_TOPIC = 'ON_CREATE_TOPIC';
+export function createTopic() {
+    return (dispatch) => {
+      dispatch({
+        type: ON_CREATE_TOPIC,
       });
     };
 }

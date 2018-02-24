@@ -16,9 +16,8 @@ class TopicsContainer extends Component {
       <View style={styles.container}>
         <Topics
           style={styles.topicsScroll}
-          topics={this.props.topics.topics}
-          loading={this.props.topics.loading}
           fetchTopicsList={this.props.fetchTopicsList}
+          {...this.props.topics}
         />
         <NavigatorBar
           style={styles.navigator}

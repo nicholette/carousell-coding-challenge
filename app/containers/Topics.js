@@ -17,6 +17,7 @@ class TopicsContainer extends Component {
         <Topics
           style={styles.topicsScroll}
           fetchTopicsList={this.props.fetchTopicsList}
+          onPressVote={this.props.onPressVote}
           {...this.props.topics}
         />
         <NavigatorBar

@@ -76,7 +76,6 @@ var styles = StyleSheet.create({
     row: {
         borderBottomWidth: 1,
         borderColor: "#ccc",
-        height: 80,
         padding: 10
     },
     title: {

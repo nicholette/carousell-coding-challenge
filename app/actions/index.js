@@ -2,11 +2,11 @@
 const seedTopics = [
     {
       name: "THE HOTTEST TOPIC IN TOWN",
-      votes: 100
+      votes: 1100
     },
     {
       name: "THE COLDEST TOPIC IN TOWN",
-      votes: -100
+      votes: -1000
     },
     {
       name: "Not too warm",

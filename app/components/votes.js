@@ -11,8 +11,16 @@ import {
 } from 'react-native';
 
 export default class Votes extends Component {
+
+    parseVotes = (votes) => {
+      let voteStr = votes.toString();
+      return voteStr.match(/\d/g).length < 4 ? votes
+        : voteStr.replace(/(\d){1}\d{2}$/, '.$1k');
+    }
+
     render() {
       const { votes, onPressUpvote, onPressDownvote } = this.props;
+      const parsedVotes = this.parseVotes(votes);
       const upvoteImgSrc = (require('../img/upvote_16.png'));
       const downvoteImgSrc = (require('../img/downvote_16.png'));
 
@@ -24,7 +32,7 @@ export default class Votes extends Component {
               source={upvoteImgSrc}
             />
           </TouchableOpacity>
-          <Text style={styles.voteText}>{votes}</Text>
+          <Text style={styles.voteText}>{parsedVotes}</Text>
           <TouchableOpacity style={styles.button} onPress={onPressDownvote} title="">
             <Image
               source={downvoteImgSrc}

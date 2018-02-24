@@ -44,14 +44,12 @@ var styles = StyleSheet.create({
       width: 100
     },
     button: {
-      backgroundColor: '#859a9b',
       paddingTop: 10,
       paddingBottom: 10,
       alignItems: 'center',
       width: '25%'
     },
     voteText: {
-      backgroundColor: '#444',
       paddingTop: 10,
       paddingBottom: 10,
       textAlign: 'center',

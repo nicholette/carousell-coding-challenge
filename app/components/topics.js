@@ -71,8 +71,7 @@ var styles = StyleSheet.create({
     },
     flatListContainer: {
       flex: 1,
-      backgroundColor: '#F5F5F5',
-      paddingTop: 20
+      backgroundColor: '#F5F5F5'
     },
     row: {
         borderBottomWidth: 1,

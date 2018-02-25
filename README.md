@@ -9,5 +9,11 @@ Assumption: "keep the topics in memory without using data persistence"
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 ## Build Instructions
-- iOS: `react-native run-ios`
-- Android: `react-native run-android`
+1. Run `npm install` or `yarn` in the project directory to install node_modules
+2. Make sure you have an iOS/Android simulator or device before running:
+  - iOS: `react-native run-ios`
+  - Android: `react-native run-android`
+
+Alternatively,
+  - iOS: change directory to `ios` and run the `.xcodeproj` file in Xcode
+  - Android: open the `android` folder in Android Studio and run the project
